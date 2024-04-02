@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     form.onsubmit = function(e) {
         e.preventDefault(); 
 
-        
         const data = new FormData(form);
         fetch(form.action, {
             method: 'POST',
@@ -11,16 +10,14 @@ document.addEventListener('DOMContentLoaded', function() {
             mode: 'no-cors' 
         }).then(response => {
             console.log('Form submitted successfully');
-            
-            alert("Form submitted successfully!");
         }).catch(error => console.error('Error:', error));
     };
 });
 
-
 document.querySelector('form').addEventListener('submit', function(event) {
     let questions = document.querySelectorAll('.question');
     let isFormComplete = true;
+
     for (let i = 0; i < questions.length; i++) {
         let radios = questions[i].querySelectorAll('input[type="radio"]');
         let isChecked = false;
@@ -38,16 +35,20 @@ document.querySelector('form').addEventListener('submit', function(event) {
                 errorMsg.id = 'error-msg';
                 errorMsg.style.color = 'red';
                 errorMsg.textContent = 'Remplir toutes les questions';
-                this.insertBefore(errorMsg, this.firstChild);
+                this.insertBefore(errorMsg, this.querySelector('button[type="submit"]'));
             }
+            break;
         }
     }
+
     if (!isFormComplete) {
         event.preventDefault();
+        window.alert = function() {};
     } else {
         let errorMsg = document.getElementById('error-msg');
         if (errorMsg) {
             errorMsg.remove();
         }
+        window.alert = function() { alert("Form submitted successfully!"); };
     }
 });
