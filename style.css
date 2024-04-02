@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Mulish", sans-serif;
+    color: #1d1d4d;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background: url(img/post-bg.png);
+    background-size: cover;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #1d1d4d;
+    width: 50%; 
+    margin: 20px auto;
+}
+
+.question {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    width: 800px;
+    
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 14px 20px;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+label {
+    font-weight: 700;
+}
+
+.reponse {
+    margin-top: 12px;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1d1d4d;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+
+    margin-bottom: 24px;
+
+    transition: all 0.3s;
+    &:hover {
+        background-color: #007bff;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .question {
+        width: 90%;
+    }
+    
+}
